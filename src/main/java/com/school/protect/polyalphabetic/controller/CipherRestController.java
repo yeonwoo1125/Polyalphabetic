@@ -1,5 +1,6 @@
 package com.school.protect.polyalphabetic.controller;
 
+import com.school.protect.polyalphabetic.domain.Cipher;
 import com.school.protect.polyalphabetic.dto.request.CipherRequestDto;
 import com.school.protect.polyalphabetic.service.CipherService;
 import lombok.AllArgsConstructor;
@@ -15,8 +16,12 @@ public class CipherRestController {
         return cipherService.save(dto);
     }
 
-    @GetMapping("/{id}")
+    @PostMapping("/{id}")
     public void encryption(@PathVariable Long id){
         cipherService.encryption(id);
+    }
+
+    @GetMapping("/{key}")
+    public void findByKey(@PathVariable String key){
     }
 }
