@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.*;
 @SpringBootTest
 public class CipherRepositoryTest {
     @Autowired
-    CipherRepository cipherRepository;
+    CipherJPARepository cipherRepository;
 
     @AfterEach
     public void clean(){

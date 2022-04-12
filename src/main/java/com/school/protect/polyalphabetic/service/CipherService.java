@@ -2,25 +2,29 @@ package com.school.protect.polyalphabetic.service;
 
 import com.school.protect.polyalphabetic.domain.Cipher;
 import com.school.protect.polyalphabetic.dto.request.CipherRequestDto;
-import com.school.protect.polyalphabetic.domain.CipherRepository;
+import com.school.protect.polyalphabetic.domain.CipherJPARepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 @Service
 @AllArgsConstructor
 public class CipherService {
 
-    private CipherRepository cipherRepository;
+    private CipherJPARepository cipherRepository;
     public static char alphaBoard[][] = new char[5][5]; //암호판
     public static boolean oddFlag = false;
 
     @Transactional
     public Long save(CipherRequestDto dto){
         return cipherRepository.save(dto.toEntity()).getId();
+    }
+
+    @Transactional
+    public Cipher findByKey(String key){
+        return cipherRepository.findByKey(key);
     }
 
     //암호화
