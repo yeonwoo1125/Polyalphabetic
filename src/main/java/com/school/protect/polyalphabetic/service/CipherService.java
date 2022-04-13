@@ -23,8 +23,9 @@ public class CipherService {
     }
 
     @Transactional
-    public Cipher findByKey(String key){
-        return cipherRepository.findByKey(key);
+    public Cipher getCipher(Long id){
+        encryption(id);
+        return cipherRepository.findById(id).get();
     }
 
     //암호화

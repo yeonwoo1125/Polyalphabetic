@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3101</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+<h1 id="title">다중 치환 암호 프로그램</h1>
+<div id="inputDiv">
+    <form method="post" th:action="@{/cipher}" th:object="${form}">
+        <span>암호키</span>
+        <input th:field="*{key}" type="text"><br/>
+
+        <span>평문 </span>
+        <input th:field="*{value}" type="text"><br/>
+        <button type="submit">확인</button>
+    </form>
+</div>
+</body>
+</html>
