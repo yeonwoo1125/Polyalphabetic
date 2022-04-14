@@ -8,14 +8,18 @@
 <body>
 <h1 id="title">다중 치환 암호 프로그램</h1>
 <div id="inputDiv">
-    <form method="post" th:action="@{/cipher}" th:object="${form}">
+    <form method="post"th:action="@{/cipher}" th:object="${form}" >
         <span>암호키</span>
         <input th:field="*{key}" type="text"><br/>
 
         <span>평문 </span>
-        <input th:field="*{value}" type="text"><br/>
+        <input th:field="*{value}" type="text">
         <button type="submit">확인</button>
     </form>
 </div>
+<div>
+
+</div>
 </body>
+
 </html>
