@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>3101</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+  <meta charset="UTF-8">
+  <title>3101</title>
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
 </head>
+
 <body>
 <h1 id="title">다중 치환 암호 프로그램</h1>
-<div id="inputDiv">
-    <form method="post"th:action="@{/cipher}" th:object="${form}" >
-        <span>암호키</span>
-        <input th:field="*{key}" type="text"><br/>
 
-        <span>평문 </span>
-        <input th:field="*{value}" type="text">
-        <button type="submit">확인</button>
-    </form>
-</div>
+<form th:action="@{/cipher}" method="post" th:object="${form}">
+  <div>
+    <label for="value-label">평문 : </label>
+    <input type="text" th:field="*{value}" id="value-label" required>
+  </div>
+  <div>
+    <label for="key-label">암호키 : </label>
+    <input type="text" th:field="*{key}" id="key-label" required>
+    <button type="submit">확인</button>
+  </div>
+  <br/>
+
+</form>
 <div>
-
+  <label>암호문 : </label>
+  <input readonly/>
+  <br />
+  <label>복호문 : </label>
+  <input readonly/>
 </div>
-</body>
+<div id="button-div">
+  <button id="encryption">암호화</button>
+  <button id="encryption-course">암호화 과정</button>
+  <button id="decryption">복호화</button>
+</div>
 
+</body>
 </html>

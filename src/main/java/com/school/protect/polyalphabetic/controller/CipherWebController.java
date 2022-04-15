@@ -17,24 +17,17 @@ public class CipherWebController {
 
     @GetMapping()
     public String mainPage(@ModelAttribute("form") CipherRequestDto dto){
+
         return "main";
     }
 
     @PostMapping("/cipher")
-    public String sendCipherId(CipherRequestDto dto, RedirectAttributes redirectAttributes){
+    public String sendCipherId(CipherRequestDto dto, Model m){
         Long id = cipherService.save(dto);
-        redirectAttributes.addAttribute("id",id);
-        return "redirect:/{id}";
-    }
-
-    @GetMapping("/{id}")
-    public String showCipher(@PathVariable Long id, Model m){
         Cipher cipher = cipherService.getCipher(id);
-        m.addAttribute("key", cipher.getKey());
-        m.addAttribute("value",cipher.getValue());
-        m.addAttribute("encryption", cipher.getEncryption());
-        m.addAttribute("cryptogram", cipher.getCryptogram());
 
-        return "showCipher";
+        m.addAttribute("key",cipher.getKey());
+        m.addAttribute("value",cipher.getValue());
+        return "okay";
     }
 }

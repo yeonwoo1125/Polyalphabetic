@@ -9,7 +9,7 @@
     text-align: center;
     font-size: 70px;
 }
-span{
+label{
     font-family: GmarketSansMedium;
     font-size: 50px;
 }
@@ -18,12 +18,14 @@ span{
     position:relative
 }
 input{
-    margin-left: 40px;
-    margin-top: 40px;
+    margin-left: 10px;
+    margin-top: 50px;
     width: 600px;
     height: 45px;
     font-size: 40px;
     border-radius: 10px;
+    vertical-align: bottom;
+    position: relative;
 }
 button{
     background-color: white;
@@ -34,8 +36,40 @@ button{
     padding-right: 10px;
 }
 
-#encryDiv{
-    border: 2px solid black;
-    font-family: GmarketSansMedium;
-    margin-top: 100px;
+div{
+    text-align: center;
+}
+
+#encryptionDiv{
+    margin-left: 40px;
+    margin-top: 40px;
+    width: 600px;
+    height: 45px;
+    font-size: 40px;
+    border-radius: 10px;
+}
+
+#encryption, #decryption, #encryption-course{
+    height: 80px;
+    font-size: 40px;
+    margin-bottom: 100px;
+    position: absolute;
+    bottom: 0;
+    display: block;
+}
+
+#encryption{
+    left: 0;
+    margin-left: 100px;
+    width: 200px;
+
+}
+#decryption{
+    right: 0;
+    margin-right: 100px;
+    width: 200px;
+}
+#encryption-course{
+    display: inline-block;
+    width: 250px;
 }
