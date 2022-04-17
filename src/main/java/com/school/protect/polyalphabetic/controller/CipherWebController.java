@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @AllArgsConstructor
@@ -22,12 +21,40 @@ public class CipherWebController {
     }
 
     @PostMapping("/cipher")
-    public String sendCipherId(CipherRequestDto dto, Model m){
+    public String insertCipher(CipherRequestDto dto, Model m){
         Long id = cipherService.save(dto);
         Cipher cipher = cipherService.getCipher(id);
 
         m.addAttribute("key",cipher.getKey());
         m.addAttribute("value",cipher.getValue());
-        return "okay";
+        m.addAttribute("id",id);
+        return "chkInput";
+    }
+
+    @GetMapping("/encryption/{id}")
+    public String valueToEncryption(@PathVariable Long id, Model m){
+        Cipher cipher = cipherService.getCipher(id);
+
+        m.addAttribute("key", cipher.getKey());
+        m.addAttribute("value",cipher.getValue());
+        m.addAttribute("encryption", cipher.getEncryption().replaceAll(" ",""));
+        return "showEncryption";
+    }
+
+    @GetMapping("/encryption/course/{id}")
+    public String encryptionCourse(@PathVariable Long id, Model m){
+        Cipher cipher = cipherService.getCipher(id);
+
+        return "showEncryptionCourse";
+    }
+
+    @GetMapping("/decryption/{id}")
+    public String encryptionToValue(@PathVariable Long id, Model m){
+        Cipher cipher = cipherService.getCipher(id);
+        m.addAttribute("key", cipher.getKey());
+        m.addAttribute("value",cipher.getValue());
+        m.addAttribute("encryption", cipher.getEncryption().replaceAll(" ",""));
+        m.addAttribute("decryption", cipher.getValue());
+        return "showDecryption";
     }
 }
