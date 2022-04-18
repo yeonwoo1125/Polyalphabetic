@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3101</title>
+    <link rel="stylesheet" type="text/css" href="/css/course.css" />
+</head>
+<body>
+<h1>암호화 과정</h1>
+
+<div>
+    <form>
+        <label>암호키</label>
+        <input type="text" th:value="${key}" readonly><br/>
+        <label>평문</label>
+        <input type="text" th:value="${value}" readonly><br/>
+        <label>맵핑</label>
+        <input type="text" th:value="${cryptogram}" readonly><br/>
+    </form>
+</div>
+<a th:href="@{/encryption/{id}(id=${id})}">
+    <button>암호문 확인</button>
+</a>
+
+
+</body>
+</html>

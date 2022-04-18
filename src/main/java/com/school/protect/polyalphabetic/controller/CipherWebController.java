@@ -44,13 +44,17 @@ public class CipherWebController {
     @GetMapping("/encryption/course/{id}")
     public String encryptionCourse(@PathVariable Long id, Model m){
         Cipher cipher = cipherService.getCipher(id);
-
+        m.addAttribute("key",cipher.getKey());
+        m.addAttribute("value",cipher.getValue());
+        m.addAttribute("cryptogram", cipher.getCryptogram());
+        m.addAttribute("id", id);
         return "showEncryptionCourse";
     }
 
     @GetMapping("/decryption/{id}")
     public String encryptionToValue(@PathVariable Long id, Model m){
         Cipher cipher = cipherService.getCipher(id);
+
         m.addAttribute("key", cipher.getKey());
         m.addAttribute("value",cipher.getValue());
         m.addAttribute("encryption", cipher.getEncryption().replaceAll(" ",""));
