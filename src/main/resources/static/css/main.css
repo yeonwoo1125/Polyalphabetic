@@ -10,7 +10,7 @@ body{
 }
 
 #title{
-    font-family: 'GmarketSansMedium';
+    font-family: GmarketSansMedium;
     text-align: center;
     font-size: 70px;
 }
@@ -66,7 +66,4 @@ label{
 
 a{
     width: content-box;
-}
-table{
-    text-align: center;
 }
