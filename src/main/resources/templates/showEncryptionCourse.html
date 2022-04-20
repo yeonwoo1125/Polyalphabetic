@@ -3,7 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>3101</title>
-    <link rel="stylesheet" type="text/css" href="/css/course.css"/>
+    <style>
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        h1{
+            font-family: GmarketSansMedium;
+            text-align: center;
+            font-size: 60px;
+        }
+
+        label{
+            font-family: GmarketSansMedium;
+            font-size: 50px;
+        }
+
+        input{
+            margin-left: 20px;
+            margin-top: 20px;
+            width: 800px;
+            height: 60px;
+            font-size: 45px;
+            border-radius: 10px;
+            vertical-align: bottom;
+        }
+        button{
+            background-color: white;
+            font-family: GmarketSansMedium;
+            border-radius: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 50px;
+            margin-right: 50px;
+            font-size: 30px;
+        }
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 400px;
+            height: 400px;
+            position: relative;
+
+            margin: 50px auto;
+        }
+
+        tr, td {
+            font-family: GmarketSansMedium;
+            font-size: 30px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        div{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <h1>암호화 과정</h1>
@@ -18,6 +77,7 @@
         <input type="text" th:value="${cryptogram}" readonly><br/>
     </form>
 </div>
+
 <a th:href="@{/encryption/{id}(id=${id})}">
     <button>암호문 확인</button>
 </a>
@@ -58,8 +118,6 @@
         <td th:text="${cryptogram.charAt(24)}"></td>
     </tr>
 </table>
-</div>
-
 
 </body>
 </html>
