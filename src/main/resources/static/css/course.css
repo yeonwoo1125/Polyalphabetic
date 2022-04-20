@@ -4,7 +4,14 @@
     font-weight: normal;
     font-style: normal;
 }
+table{
+    border: 1px solid black;
 
+}
+#table-div{
+    margin-top: 200px;
+    text-align: center;
+}
 h1{
     font-family: 'GmarketSansMedium';
     text-align: center;

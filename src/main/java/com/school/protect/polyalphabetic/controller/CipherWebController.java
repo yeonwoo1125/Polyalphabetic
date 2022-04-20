@@ -37,7 +37,7 @@ public class CipherWebController {
 
         m.addAttribute("key", cipher.getKey());
         m.addAttribute("value",cipher.getValue());
-        m.addAttribute("encryption", cipher.getEncryption().replaceAll(" ",""));
+        m.addAttribute("encryption", cipher.getEncryption());
         return "showEncryption";
     }
 
@@ -57,8 +57,13 @@ public class CipherWebController {
 
         m.addAttribute("key", cipher.getKey());
         m.addAttribute("value",cipher.getValue());
-        m.addAttribute("encryption", cipher.getEncryption().replaceAll(" ",""));
+        m.addAttribute("encryption", cipher.getEncryption());
         m.addAttribute("decryption", cipher.getValue());
         return "showDecryption";
+    }
+    @DeleteMapping()
+    public String deleteCipher(){
+        cipherService.deleteCipher();
+        return "redirect:";
     }
 }
