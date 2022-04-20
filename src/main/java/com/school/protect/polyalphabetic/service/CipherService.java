@@ -28,10 +28,15 @@ public class CipherService {
         return cipherRepository.findById(id).get();
     }
 
+    @Transactional
+    public void deleteCipher(){
+        cipherRepository.deleteAll();
+    }
+
     //암호화
     public void encryption(Long id){
         Cipher cipher = cipherRepository.findById(id).get();
-        String cry = setBoards(cipher.getKey());
+        String cryptogram = setBoards(cipher.getKey());
         String value = cipher.getValue();
 
         //공백 제거
@@ -39,9 +44,9 @@ public class CipherService {
         //z -> q
         value.replaceAll("z","q");
 
-        String encry = strEncryption(cipher.getKey(), value);
+        String encryption = strEncryption(cipher.getKey(), value);
         //암호판과 암호화된 문자열 저장
-        cipher.setCryptogram(cry, encry);
+        cipher.setCryptogram(cryptogram, encryption);
 
     }
 
@@ -116,13 +121,13 @@ public class CipherService {
 
             if(x1==x2) //행이 같은경우
             {
-                tmpArr[0] = alphaBoard[x1][(y1+1)%5];
-                tmpArr[1] = alphaBoard[x2][(y2+1)%5];
+                tmpArr[0] = alphaBoard[x1][(y1+4)%5];
+                tmpArr[1] = alphaBoard[x2][(y2+4)%5];
             }
             else if(y1==y2) //열이 같은 경우
             {
-                tmpArr[0] = alphaBoard[(x1+1)%5][y1];
-                tmpArr[1] = alphaBoard[(x2+1)%5][y2];
+                tmpArr[0] = alphaBoard[(x1+4)%5][y1];
+                tmpArr[1] = alphaBoard[(x2+4)%5][y2];
             }
             else //행, 열 모두 다른경우
             {
