@@ -12,13 +12,12 @@
 
 <form th:action="@{/cipher}" method="post" >
     <div>
-        <label for="value-label">평문 : </label>
+        <label for="value-label">평 문 : </label>
         <input type="text" th:value="${value}" id="value-label" readonly>
     </div>
     <div>
         <label for="key-label">암호키 : </label>
         <input type="text" th:value="${key}" id="key-label" readonly>
-        <button type="submit">확인</button>
     </div>
     <br/>
 
@@ -30,15 +29,15 @@
     <label>복호문 : </label>
     <input  readonly/>
 </div>
-<div id="button-div">
+<div id="btn-div">
     <a th:href="@{/encryption/{id}(id=${id})}">
-        <button id="encryption">암호화</button>
+        <button class="btn">암호화</button>
     </a>
     <a th:href="@{/encryption/course/{id}(id=${id})}">
-        <button id="encryption-course">암호화 과정</button>
+        <button class="btn">암호화 과정</button>
     </a>
 
-    <button id="decryption" th:onclick="alert('암호화를 먼저 진행해주세요.')">복호화</button>
+    <button class="btn" th:onclick="alert('암호화를 먼저 진행해주세요.')">복호화</button>
 
 
 </div>

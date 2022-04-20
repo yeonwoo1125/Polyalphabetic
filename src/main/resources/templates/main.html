@@ -12,13 +12,16 @@
 
 <form th:action="@{/cipher}" method="post" th:object="${form}">
   <div>
-    <label for="value-label">평문 : </label>
-    <input type="text" th:field="*{value}" id="value-label" required>
-  </div>
-  <div>
-    <label for="key-label">암호키 : </label>
-    <input type="text" th:field="*{key}" id="key-label" required>
-    <button type="submit">확인</button>
+    <div class="label-class">
+      <label for="value-label">평 문 : </label>
+      <input type="text" th:field="*{value}" id="value-label" required>
+    </div>
+    <div class="label-class">
+      <label for="key-label">암호키 : </label>
+      <input type="text" th:field="*{key}" id="key-label" required>
+    </div>
+
+    <button type="submit" id="btn-submit">확인</button>
   </div>
   <br/>
 
@@ -26,15 +29,19 @@
 <div>
   <label>암호문 : </label>
   <input readonly/>
-  <br />
+</div>
+<div>
   <label>복호문 : </label>
   <input readonly/>
 </div>
-<div id="button-div">
-  <button id="encryption">암호화</button>
-  <button id="encryption-course">암호화 과정</button>
-  <button id="decryption">복호화</button>
+<div id="btn-div">
+  <button class="btn" th:onclick="alert('평문과 암호키를 입력해주세요.')">암호화</button>
+  <button class="btn">다시 입력하기</button>
+  <button class="btn" th:onclick="alert('평문과 암호키를 입력해주세요.')">암호화 과정</button>
+  <button class="btn" th:onclick="alert('평문과 암호키를 입력해주세요.')">복호화</button>
 </div>
+
+
 
 </body>
 </html>
