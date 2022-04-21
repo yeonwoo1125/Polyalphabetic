@@ -5,24 +5,27 @@
     font-style: normal;
 }
 
-body{
+body {
     margin: 0 auto;
 }
 
-#title{
+#title {
     font-family: GmarketSansMedium;
     text-align: center;
     font-size: 70px;
 }
-label{
+
+label {
     font-family: GmarketSansMedium;
     font-size: 50px;
 }
-#inputDiv{
+
+#inputDiv {
     text-align: center;
-    position:relative
+    position: relative
 }
-input{
+
+input {
     margin-left: 10px;
     margin-top: 50px;
     width: 600px;
@@ -32,7 +35,8 @@ input{
     vertical-align: bottom;
     position: relative;
 }
-#btn-submit{
+
+#btn-submit {
     background-color: white;
     font-family: GmarketSansMedium;
     border-radius: 10px;
@@ -42,14 +46,15 @@ input{
     font-size: 30px;
 }
 
-div{
+div {
     text-align: center;
 }
 
-#btn-div{
-    margin-top: 400px;
+#btn-div {
+    margin-top: 150px;
 }
-.btn{
+
+.btn {
     background-color: white;
     font-family: GmarketSansMedium;
     border-radius: 10px;
@@ -57,13 +62,10 @@ div{
     height: 70px;
     padding-left: 15px;
     padding-right: 15px;
-    margin: 0px 130px 0px 130px;
+    margin: 0px 60px 0px 60px;
 }
 
-label{
+label {
     width: 100px;
 }
 
-a{
-    width: content-box;
-}
